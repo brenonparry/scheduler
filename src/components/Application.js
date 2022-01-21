@@ -24,16 +24,15 @@ export default function Application(props) {
 
   
   useEffect(() => {
-    const baseUrl = "http://localhost:8001/api"
 
-    const daysPromise = axios.get(`${baseUrl}/days`);
-    const appointmentPromise = axios.get(`${baseUrl}/appointments`);
-    const interviewersPromise = axios.get(`${baseUrl}/interviewers`);
+    const daysPromise = axios.get('/api/days');
+    const appointmentPromise = axios.get('/api/appointments');
+    const interviewersPromise = axios.get('/api/interviewers');
     const promises = [daysPromise, appointmentPromise, interviewersPromise];
 
     Promise.all(promises)
       .then((all) => {
-        console.log(all[0].data)
+        
         const days = all[0].data;
         const appointments = all[1].data;
         const interviewers = all[2].data;
