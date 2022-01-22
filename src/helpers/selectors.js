@@ -7,17 +7,21 @@ export const getAppointmentsForDay = (state, day) => {
     for (const element of filteredDays[0].appointments) {
       appointmentArray.push(state.appointments[element]);
     
-    }
-  }
+    };
+  };
 
   return appointmentArray;
-}
+};
 
 export const getInterview = (state, interveiw) => {
 
   if(interveiw) {
     return {...interveiw, interviewer: state.interviewers[interveiw.interviewer]};
-  }  
+  };
   
-  return null
-}
+  return null;
+};
+
+export const getInterviewersForDay = (state, day) => {
+
+};
