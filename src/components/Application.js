@@ -19,7 +19,7 @@ export default function Application() {
     interviewers: {}
   });
 
-  function bookInterview(id, interview) {
+  const bookInterview = (id, interview) => {
     console.log(id, interview);
 
     const appointment = {
@@ -37,6 +37,25 @@ export default function Application() {
         .then(() => setState({...state, appointments }))
         .catch((err) => console.log(err.message))
       );
+  }
+
+  const cancelInterview = (id) => {
+
+    const appointment = {
+      ...state.appointments[id],
+      interview: null
+    };
+
+    const appointments = {
+      ...state.appointments,
+      [id]: appointment
+    };
+
+    return (
+      axios.delete(`/api/appointments/${id}`, appointment)
+        .then(() => setState({...state, appointments }))
+        .catch((err) => console.log(err.message))
+    );
   }
 
   const setDay = (day) => setState({ ...state, day });
