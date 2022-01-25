@@ -32,11 +32,11 @@ export default function Application() {
       [id]: appointment
     };
 
-    setState({
-      ...state,
-      appointments
-    });
-
+    return (
+      axios.put(`/api/appointments/${id}`, appointment)
+        .then(() => setState({...state, appointments }))
+        .catch((err) => console.log(err.message))
+      );
   }
 
   const setDay = (day) => setState({ ...state, day });
