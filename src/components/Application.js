@@ -35,7 +35,7 @@ export default function Application() {
     return (
       axios.put(`/api/appointments/${id}`, appointment)
         .then(() => setState({...state, appointments }))
-        .catch((err) => console.log(err.message))
+        
       );
   }
 
@@ -54,7 +54,7 @@ export default function Application() {
     return (
       axios.delete(`/api/appointments/${id}`, appointment)
         .then(() => setState({...state, appointments }))
-        .catch((err) => console.log(err.message))
+        
     );
   }
 
