@@ -39,6 +39,7 @@ export default function Appointment(props) {
   return (
     <article className="appointment">
       <Header time={props.time} />
+      
       {mode === EMPTY && <Empty onAdd={() => transition(CREATE)} />}
       {mode === SHOW && props.interview && (
         <Show
@@ -48,18 +49,23 @@ export default function Appointment(props) {
           onDelete={() => transition(CONFIRM)}
         />
       )}
-      {mode === CREATE && (
+      {mode === CREATE && 
         <Form 
           interviewers={props.interviewers} 
           student=""
           interviewer={null}
           onCancel={back} 
           onSave={save} 
-        />
-        )}
+        />}
+        
         {mode === SAVING && <Status message="Hold Your Beans"/>}
         {mode === DELETING && <Status message="Hold Your Beans"/>}
-        {mode === CONFIRM && <Confirm onDelete={deleteAppoinment} onCancel={back} message="Ah shit, here we go again"/>}
+        {mode === CONFIRM && 
+          <Confirm 
+            onDelete={deleteAppoinment}  
+            onCancel={back}   
+            message="Ah shit, here we go again"/>}
+
     </article>
 
 
