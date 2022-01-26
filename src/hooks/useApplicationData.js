@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import _ from "lodash";
 
 export default function useApplicationData() {
 
@@ -28,8 +29,7 @@ export default function useApplicationData() {
       appointments,
     }
     if (!editing) {
-      // const days = [...state.days]
-      const days = JSON.parse(JSON.stringify(state.days))
+      const days = _.cloneDeep(state.days);
       for (const day of days) {
 
         if (day.appointments.includes(id)) {
