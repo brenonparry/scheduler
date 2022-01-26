@@ -4,7 +4,7 @@ import InterviewerList from 'components/InterviewerList'
 
 
 export default function Form(props) {
-  console.log("FORM PROPS: ", props);
+  
 
   const [student, setStudent] = useState(props.student || "");
   const [interviewer, setInterviewer] = useState(props.interviewer || null);
