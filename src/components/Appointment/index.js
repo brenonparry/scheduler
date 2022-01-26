@@ -30,7 +30,7 @@ export default function Appointment(props) {
       interviewer
     };
     transition(SAVING)
-    props.bookInterview(props.id, interview)
+    props.bookInterview(props.id, interview, mode === EDIT)
       .then(() => transition(SHOW))
       .catch(() => transition(ERROR_SAVE, true));
   }
@@ -68,7 +68,7 @@ export default function Appointment(props) {
         />
       }
 
-      {mode === EDIT &&
+      {mode === EDIT && 
         <Form
           student={props.interview.student}
           interviewers={props.interviewers}
