@@ -60,7 +60,7 @@ export default function useApplicationData() {
     };
 
 
-    const days = [...state.days]
+    const days = _.cloneDeep(state.days);
     for (const day of days) {
 
       if (day.appointments.includes(id)) {
