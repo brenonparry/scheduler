@@ -28,13 +28,16 @@ export default function useApplicationData() {
       appointments,
     }
     if (!editing) {
-      const days = [...state.days]
+      // const days = [...state.days]
+      const days = JSON.parse(JSON.stringify(state.days))
       for (const day of days) {
 
         if (day.appointments.includes(id)) {
           day.spots--;
         }
       }
+      console.log("STATE.DAYS: ", state.days)
+      console.log("DAYS: ", days)
       newState['days'] = days
     }
     return (
