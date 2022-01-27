@@ -12,7 +12,7 @@ export default function useApplicationData() {
   });
 
   const setDay = (day) => setState({ ...state, day });
-
+  
   const bookInterview = (id, interview, editing = false) => {
 
     const appointment = {
@@ -28,24 +28,29 @@ export default function useApplicationData() {
     const newState = {
       appointments,
     }
-    if (!editing) {
-      const days = _.cloneDeep(state.days);
-      for (const day of days) {
 
-        if (day.appointments.includes(id)) {
-          day.spots--;
-        }
-      }
-      console.log("STATE.DAYS: ", state.days)
-      console.log("DAYS: ", days)
-      newState['days'] = days
-    }
+
+
     return (
       axios.put(`/api/appointments/${id}`, appointment)
-        .then(() => setState({ ...state, ...newState }))
+      .then(() => {
+        if (!state.appointments[id].interview) {
+
+          const days = _.cloneDeep(state.days);
+          for (const day of days) {
       
-      );
-    }
+            if (day.appointments.includes(id)) {
+              day.spots--;
+            }
+          }
+        
+          newState['days'] = days
+        } 
+    
+      })
+      .then(() => setState({ ...state, ...newState }))
+    );
+  }
 
   const cancelInterview = (id) => {
 
