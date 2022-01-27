@@ -78,8 +78,8 @@ export default function Appointment(props) {
         />
       }
 
-      {mode === SAVING && <Status message="Hold Your Beans" />}
-      {mode === DELETING && <Status message="Hold Your Beans" />}
+      {mode === SAVING && <Status message="Saving...Hold Your Beans" />}
+      {mode === DELETING && <Status message="Deleting...Hold Your Beans" />}
 
       {mode === CONFIRM &&
         <Confirm
