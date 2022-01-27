@@ -1,5 +1,11 @@
 # Interview Scheduler
 
+An easy to use, scheduling app built on React.
+
+## See the app in action below!
+
+![SCHEDULER-GIF](https://github.com/brenonparry/scheduler/blob/master/docs/SCHEDULER-GIF.gif)
+
 ## Setup
 
 Install dependencies with `npm install`.
