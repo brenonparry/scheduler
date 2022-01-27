@@ -85,7 +85,7 @@ export default function Appointment(props) {
         <Confirm
           onDelete={deleteAppoinment}
           onCancel={back}
-          message="Ah shit, here we go again"
+          message="Are you sure you have it in you to do this?"
         />
       }
 
