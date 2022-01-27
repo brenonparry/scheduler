@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "components/Appointment/styles.scss"
 import Header from 'components/Appointment/Header';
 import Show from 'components/Appointment/Show';
@@ -31,7 +31,7 @@ export default function Appointment(props) {
     transition(SAVING)
     props.bookInterview(props.id, interview)
       .then(() => transition(SHOW))
-      .catch(() => transition(ERROR_SAVE, true));
+      .catch(() => transition(ERROR_SAVE));
   };
 
   const deleteAppoinment = () => {
@@ -53,7 +53,7 @@ export default function Appointment(props) {
           student={props.interview.student}
           interviewer={props.interview.interviewer}
           onDelete={() => transition(CONFIRM)}
-          onEdit={() => transition(EDIT)}
+          onEdit={() => transition(EDIT, true)}
         />
       }
 
