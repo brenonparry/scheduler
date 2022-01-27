@@ -57,6 +57,7 @@ export default function Application() {
       </section>
       <section className="schedule" >
         {appointmentsLayout}
+        <Appointment key="last" time="5pm" />
       </section>
     </main>
   );
