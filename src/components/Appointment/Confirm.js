@@ -10,5 +10,5 @@ export default function Confirm(props) {
         <Button onClick={props.onDelete} danger>Confirm</Button>
       </section>
     </main>
-  )
-}
+  );
+};
