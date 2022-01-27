@@ -13,18 +13,18 @@ export default function useVisualMode(initial) {
     } else {
       setMode(newMode);
       setHistory([...history.slice(0, -1), newMode]);
-    }
-    
+    };
+
   };
-   
+
   const back = () => {
-    
+
     if (history.length > 1) {
       setHistory(history.slice(0, -1));
       setMode(history[history.length - 2]);
-    }
+    };
   };
 
   return { mode, transition, back, history };
 
-}
+};
