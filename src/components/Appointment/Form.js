@@ -25,11 +25,10 @@ export default function Form(props) {
       return;
     } 
     
-    // NOT SURE HOW TO IMPLIMENT THIS WITHOUT BREAKING JEST TESTS
-    // if (interviewer === null) {
-    //   setError("Must choose an intervewer");
-    //   return;
-    // }
+    if (interviewer === null) {
+      setError("Must choose an intervewer");
+      return;
+    }
 
     setError("")
     props.onSave(student, interviewer);
